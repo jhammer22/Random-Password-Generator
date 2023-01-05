@@ -57,41 +57,41 @@ var lowercase = [
 ];
 // var upper = [" A", "B"]
 var uppercase =
-[
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z',
-];
+  [
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z',
+  ];
 
- // Prompt user to choose num btwn 8 and 128
-    //  var to save length
-    //  validate user num 
+// Prompt user to choose num btwn 8 and 128
+//  var to save length
+//  validate user num 
 function getPasswordOptions() {
   var length = parseInt(prompt("How many characters would you like your password to contain?"))
-  if (Number.isNaN(length)){
+  if (Number.isNaN(length)) {
     alert("Must be a number!")
     return null
   }
@@ -105,78 +105,80 @@ function getPasswordOptions() {
   var hasUpper = confirm("click ok to include upper case letters!")
 
   if (
-    hasSpecial === false && 
+    hasSpecial === false &&
     hasNumbers === false &&
     hasLower === false &&
-    hasUpper === false 
+    hasUpper === false
   ) {
     alert("Must select at least one character type!")
     return null
-  }
-// confirm user upper, lower, num, special characters ( 4 confirm prompts)
-    // 4 vars to save T/F to included characters
-    // Validate that at least one cat was chosen
+  };
+  // confirm user upper, lower, num, special characters ( 4 confirm prompts)
+  // 4 vars to save T/F to included characters
+  // Validate that at least one cat was chosen
 
-    
+
   var passwordOptions = {
-    len: length, 
+    len: length,
     spec: hasSpecial,
     num: hasNumbers,
     low: hasLower,
     up: hasUpper,
   }
   return passwordOptions
-}
+};
 // If user says yes to include that cat choose random(Math.random) elements from the array
-function getRandom(arr){
+function getRandom(arr) {
   var randomIndex = Math.floor(Math.random() * arr.length)
   var randomElement = arr[randomIndex]
   return randomElement
-}
+};
+
 // Vars that include all user options of each category. Array of string for each cat.
-function generatePassword(){
+function generatePassword() {
   var options = getPasswordOptions()
   var result = []
   var possibleChar = []
   var guaranteedChar = []
 
-  if (options.spec){
+  if (options.spec) {
     possibleChar = possibleChar.concat(specialchars)
     guaranteedChar.push(getRandom(specialchars))
   }
 
-  if (options.num){
+  if (options.num) {
     possibleChar = possibleChar.concat(numbers)
-    guaranteedChar.push(getRandom(numbers))
+    guaranteedChar.push(getRandom(numbers));
   }
 
-  if (options.low){
-    possibleChar = possibleChar.concat(lowercase)
-    guaranteedChar.push(getRandom(lowercase))
+  if (options.low) {
+    possibleChar = possibleChar.concat(lowercase);
+    guaranteedChar.push(getRandom(lowercase));
   }
 
-  if (options.up){
-    possibleChar = possibleChar.concat(uppercase)
-    guaranteedChar.push(getRandom(uppercase))
+  if (options.up) {
+    possibleChar = possibleChar.concat(uppercase);
+    guaranteedChar.push(getRandom(uppercase));
   }
-// How to decide how many elements to choose from each array
-  for(var i=0; i<options.len; i++){
-    var char = getRandom(possibleChar)
-    result.push(char)
+  // How to decide how many elements to choose from each array
+  for (var i = 0; i < options.len; i++) {
+    var char = getRandom(possibleChar);
+    result.push(char);
   }
 
-  for(var i=0; i<guaranteedChar.length; i++){
-    result[i]=guaranteedChar[i]
-  }
-  return result.join("")
-// must return a string value that is the password.
+  for (var i = 0; i < guaranteedChar.length; i++) {
+    result[i] = guaranteedChar[i];
+  };
+  return result.join("");
+
+  // must return a string value that is the password.
 
 
-    
+
   //
 
   // Join chosen elements into a string
-  return passwordString; 
+  return passwordString;
 
 
 };
@@ -191,7 +193,7 @@ function writePassword() {
 
   passwordText.value = password;
 
-}
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
