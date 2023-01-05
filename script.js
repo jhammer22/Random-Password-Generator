@@ -55,7 +55,7 @@ var lowercase = [
   'y',
   'z',
 ];
-
+// var upper = [" A", "B"]
 var uppercase =
 [
   'A',
@@ -86,7 +86,9 @@ var uppercase =
   'Z',
 ];
 
-
+ // Prompt user to choose num btwn 8 and 128
+    //  var to save length
+    //  validate user num 
 function getPasswordOptions() {
   var length = parseInt(prompt("How many characters would you like your password to contain?"))
   if (Number.isNaN(length)){
@@ -111,7 +113,11 @@ function getPasswordOptions() {
     alert("Must select at least one character type!")
     return null
   }
+// confirm user upper, lower, num, special characters ( 4 confirm prompts)
+    // 4 vars to save T/F to included characters
+    // Validate that at least one cat was chosen
 
+    
   var passwordOptions = {
     len: length, 
     spec: hasSpecial,
@@ -121,13 +127,13 @@ function getPasswordOptions() {
   }
   return passwordOptions
 }
-
+// If user says yes to include that cat choose random(Math.random) elements from the array
 function getRandom(arr){
   var randomIndex = Math.floor(Math.random() * arr.length)
   var randomElement = arr[randomIndex]
   return randomElement
 }
-
+// Vars that include all user options of each category. Array of string for each cat.
 function generatePassword(){
   var options = getPasswordOptions()
   var result = []
@@ -153,7 +159,7 @@ function generatePassword(){
     possibleChar = possibleChar.concat(uppercase)
     guaranteedChar.push(getRandom(uppercase))
   }
-
+// How to decide how many elements to choose from each array
   for(var i=0; i<options.len; i++){
     var char = getRandom(possibleChar)
     result.push(char)
@@ -163,24 +169,10 @@ function generatePassword(){
     result[i]=guaranteedChar[i]
   }
   return result.join("")
+// must return a string value that is the password.
 
 
-  // must return a string value that is the password.
-
-  // Prompt user to choose num btwn 8 and 128
-    //  var to save length
-    //  validate user num 
-
-  // confirm user upper, lower, num, special characters ( 4 confirm prompts)
-    // 4 vars to save T/F to included characters
-    // Validate that at least one cat was chosen
-
-  // Vars that include all user options of each category. Array of string for each cat.
-
-  // var upper = [" A", "B"]
-
-  // If user says yes to include that cat choose random(Math.random) elements from the array
-    // How to decide how many elements to choose from each array
+    
   //
 
   // Join chosen elements into a string
