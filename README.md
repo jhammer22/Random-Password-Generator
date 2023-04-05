@@ -39,6 +39,13 @@
 
 ## Screenshot
 
+<img src="./assets/images/homescreen.jpeg">
+<img src="./assets/images/howmany.jpeg">
+<img src="./assets/images/upper.jpeg">
+<img src="./assets/images/lower.jpeg">
+<img src="./assets/images/num.jpeg">
+<img src="./assets/images/specialchar.jpeg">
+<img src="./assets/images/endscreen">
 
 ## Deployed Link
 
